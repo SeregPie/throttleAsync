@@ -1,7 +1,7 @@
 import Function_noop from './core/Function/noop';
 import Promise_try from './core/Promise/try';
 
-export default function(func, delay, trailing) {
+export default function(func, delay = 0, trailing) {
 	let queue = Promise.resolve();
 	let enqueue = (func => {
 		queue = queue.then(func).catch(Function_noop);
